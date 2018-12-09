@@ -58,6 +58,19 @@ public class ProductController {
 
         return produitsFiltres;
     }
+    
+    
+    
+
+    //Récupérer la liste des produits trié par nom
+
+    @RequestMapping(value = "/ProduitsTrieparNom", method = RequestMethod.GET)
+
+    public List<Product> listeProduitTrieParNom(){
+    	
+    	return productDao.OrderByNom();
+   	
+    }
 
 
     //Récupérer un produit par son Id
