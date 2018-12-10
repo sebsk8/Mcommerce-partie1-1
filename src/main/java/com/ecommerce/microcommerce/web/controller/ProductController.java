@@ -120,7 +120,8 @@ public class ProductController {
 
     @PutMapping (value = "/Produits")
     public void updateProduit(@RequestBody Product product) {
-
+    	if(product.getPrix()==0) throw new ProduitGratuitException("Le produit avec l'id " + product.getId() + " ne doit pas avoir un prix égal à 0");
+   	
         productDao.save(product);
     }
 
